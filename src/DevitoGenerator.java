@@ -1,6 +1,8 @@
 import java.awt.event.*; 
 import java.awt.*; 
 import javax.swing.*; 
+import java.applet.*;
+
 
 public class DevitoGenerator extends JFrame implements ActionListener{
 	// frame 
@@ -27,13 +29,23 @@ public class DevitoGenerator extends JFrame implements ActionListener{
         dannyPanel.add(dannyButton); 
   
         dannyFrame.add(dannyPanel); 
+
+        ImageIcon image = new ImageIcon("C:\\Users\\Dell User\\eclipse-workspace\\DailyDannyDevito\\src\\classicDannyD.png");
+        JLabel imageLabel = new JLabel(image); 
+        dannyFrame.add(imageLabel);
+        imageLabel.setBounds(10, 10, 400, 400);
+        imageLabel.setVisible(true);
+        
   
         // set the size of frame 
         dannyFrame.setSize(400, 400); 
   
-        dannyFrame.show(); 
+        dannyFrame.setVisible(true); 
+        dannyFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     } 
   
+    
+ 
     // if button is pressed 
     public void actionPerformed(ActionEvent e) { 
     	
