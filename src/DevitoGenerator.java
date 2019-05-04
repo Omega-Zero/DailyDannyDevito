@@ -11,36 +11,35 @@ public class DevitoGenerator extends JFrame implements ActionListener{
     // main class 
     public static void main(String[] args) { 
  
-    	// create a new frame 
-        dannyFrame = new JFrame("Danny Window"); 
-  
-        // create a object 
+    	// create a object, button image 
         DevitoGenerator dannyObj = new DevitoGenerator(); 
-  
-        // create a panel 
-        JPanel dannyPanel = new JPanel(); 
-  
         JButton dannyButton = new JButton("Next Devito"); 
-  
+        ImageIcon image = new ImageIcon("C:\\Users\\Dell User\\eclipse-workspace\\DailyDannyDevito\\src\\classicDannyD.png");
+        
+    	// create a new frame, panel, label
+        JFrame dannyFrame = new JFrame("Danny Window"); 
+        JPanel dannyPanel = new JPanel(); 
+        JLabel imageLabel = new JLabel(image); 
+        
+        // Jframe domain contraints 
+        
+
+
+        dannyFrame.setSize(800, 800); 
+        dannyFrame.setVisible(true);    
+        
         // add actionlistener to button 
         dannyButton.addActionListener(dannyObj); 
   
-        // add button to panel 
-        dannyPanel.add(dannyButton); 
-  
+        // add commands
+        dannyFrame.add(dannyButton); 
         dannyFrame.add(dannyPanel); 
-
-        ImageIcon image = new ImageIcon("C:\\Users\\Dell User\\eclipse-workspace\\DailyDannyDevito\\src\\classicDannyD.png");
-        JLabel imageLabel = new JLabel(image); 
         dannyFrame.add(imageLabel);
-        imageLabel.setBounds(10, 10, 400, 400);
         imageLabel.setVisible(true);
         
-  
-        // set the size of frame 
-        dannyFrame.setSize(400, 400); 
-  
-        dannyFrame.setVisible(true); 
+        dannyPanel.setBounds(900, 500, 100, 100);
+        dannyButton.setBounds(400, 100, 100, 50);
+        
         dannyFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     } 
   
