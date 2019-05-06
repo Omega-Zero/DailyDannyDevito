@@ -4,24 +4,33 @@ import javax.swing.*;
 import java.applet.*;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.Random;
 
 public class DevitoGenerator extends JFrame implements ActionListener{
  
     Timer dannyTimer = new Timer();
     
+    static Random randomDannyNum = new Random();
+    
+    static ImageIcon[] dannyImageArray = {
+    		new ImageIcon("C:\\Users\\Dell User\\eclipse-workspace\\DailyDannyDevito\\src\\classicDannyD.png"),
+    		new ImageIcon("C:\\Users\\Dell User\\eclipse-workspace\\DailyDannyDevito\\src\\classicDannyD1.png"),
+    		new ImageIcon("C:\\Users\\Dell User\\eclipse-workspace\\DailyDannyDevito\\src\\classicDannyD2.png"),
+    };
     
     // main class 
     public static void main(String[] args) { 
  
+    	
     	// create a object, button image 
         DevitoGenerator dannyObj = new DevitoGenerator(); 
         JButton dannyButton = new JButton("Next Devito"); 
-        ImageIcon image = new ImageIcon("C:\\Users\\Dell User\\eclipse-workspace\\DailyDannyDevito\\src\\classicDannyD.png");
+        
         
     	// create a new frame, panel, label
         JFrame dannyFrame = new JFrame("Danny Window"); 
         JPanel dannyPanel = new JPanel(); 
-        JLabel imageLabel = new JLabel(image); 
+        JLabel imageLabel = new JLabel(dannyImageArray[randomDannyNum.nextInt(dannyImageArray.length)]); 
         
         // Jframe domain contraints 
         
