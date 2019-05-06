@@ -36,9 +36,7 @@ public class DevitoGenerator extends JFrame implements ActionListener{
         
         dannyFrame.setSize(800, 800); 
         dannyFrame.setVisible(true);    
-        
-        // add actionlistener to button 
-        dannyButton.addActionListener(dannyObj); 
+         
   
         // add commands
         dannyFrame.add(dannyButton); 
@@ -55,6 +53,13 @@ public class DevitoGenerator extends JFrame implements ActionListener{
         
         dannyFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
+        dannyButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e){
+                JLabel imageLabel = new JLabel(dannyImageArray[randomDannyNum.nextInt(dannyImageArray.length)]);
+                dannyFrame.add(imageLabel);
+                imageLabel.setVisible(true);
+            }
+        });
         
     } 
 //    
@@ -70,9 +75,6 @@ public class DevitoGenerator extends JFrame implements ActionListener{
     
  
     // if button is pressed 
-    public void actionPerformed(ActionEvent e) { 
-    	
-      } 
 
 
 }
