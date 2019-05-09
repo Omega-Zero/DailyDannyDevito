@@ -19,42 +19,45 @@ public class DevitoGenerator extends JFrame {
     private Random randomDannyNum = new Random();
     
     private  ImageIcon[] dannyImageArray = {
-    		new ImageIcon("classicDannyD.png"),
+    		new ImageIcon("classicDannyD0.png"),
     		new ImageIcon("classicDannyD1.png"),
     		new ImageIcon("classicDannyD2.png"),
+    		new ImageIcon("classicDannyD3.png"),
+    		new ImageIcon("classicDannyD4.png"),
+    		new ImageIcon("classicDannyD5.png"),
+    		new ImageIcon("classicDannyD6.png"),
+    		new ImageIcon("classicDannyD7.png"),
+    		new ImageIcon("classicDannyD8.png"),
+    		new ImageIcon("classicDannyD9.png"),
+    		new ImageIcon("classicDannyD10.png"),
+    		new ImageIcon("classicDannyD11.png"),
+    		new ImageIcon("classicDannyD12.png"),
+    		new ImageIcon("classicDannyD13.png"),
+    		new ImageIcon("classicDannyD14.png"),
     };
     
     // main class 
     public static void main(String[] args) { 
  
-    	
     	// Create the DevitoGenerator, which is a new window
        new DevitoGenerator();
+       
     } 
     
     
     public DevitoGenerator() {
     	super("Danny Window");
+    	
+    	 // button
     	 JButton dannyButton = new JButton("Next Devito"); 
-         
-         
-     	// create a new frame, panel, label
+    	 
+     	 // create a new frame, panel, label
          JLabel imageLabel = new JLabel(dannyImageArray[randomDannyNum.nextInt(dannyImageArray.length)]); 
-         
-         // Jframe domain contraints 
-         
-         
-          
    
          // add commands
          add(dannyButton, BorderLayout.SOUTH); 
          add(imageLabel, BorderLayout.CENTER);
-        
-         
-         
-//         Timer timer = new Timer(); 
-//         TimerTask taskManager = new TaskManager(); 
-//         timer.schedule(taskManager, 2000, 5000);
+      
          
          setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
          
@@ -66,6 +69,7 @@ public class DevitoGenerator extends JFrame {
         	 }
          });
          
+         //button listener
          dannyButton.addActionListener(new ActionListener() {
              public void actionPerformed(ActionEvent e){
             	 
@@ -73,24 +77,10 @@ public class DevitoGenerator extends JFrame {
              }
          });
          
-         setSize(800, 800); 
+         super.setSize(800, 800); 
          setVisible(true);    
          
     }
-    
-//    
-//    class TaskManager extends TimerTask { 
-//        public int i = 0; 
-//        public void run() 
-//        { 
-//            System.out.println("Timer ran " + ++i); 
-//        } 
-//    } 
   
-  
-    
- 
-    // if button is pressed 
-
 
 }
