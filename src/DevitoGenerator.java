@@ -5,11 +5,16 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Random;
 import java.util.Timer;
-
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 
 @SuppressWarnings("serial")
 public class DevitoGenerator extends JFrame {
@@ -33,8 +38,10 @@ public class DevitoGenerator extends JFrame {
     		new ImageIcon("classicDannyD11.png"),
     		new ImageIcon("classicDannyD12.png"),
     		new ImageIcon("classicDannyD13.png"),
-    		new ImageIcon("classicDannyD14.png"),
+    		new ImageIcon("classicDannyD14.png")
     };
+    
+   List<Integer> alreadyDevitodArray = Arrays.asList();
     
     // main class 
     public static void main(String[] args) { 
@@ -43,6 +50,7 @@ public class DevitoGenerator extends JFrame {
        new DevitoGenerator();
        
     } 
+    
     
     
     public DevitoGenerator() {
@@ -69,11 +77,30 @@ public class DevitoGenerator extends JFrame {
         	 }
          });
          
+         
          //button listener
          dannyButton.addActionListener(new ActionListener() {
-             public void actionPerformed(ActionEvent e){
+         
+        	 public void actionPerformed(ActionEvent e){
+            	
+            	 int randomDanny = randomDannyNum.nextInt(dannyImageArray.length);
             	 
-            	 imageLabel.setIcon(dannyImageArray[randomDannyNum.nextInt(dannyImageArray.length)]);
+            	 //If the random number is not in the array AKA hasn't been shown yet
+            	 if (!alreadyDevitodArray.contains(randomDanny)) {
+            		 
+            		 //Display the image
+            		 imageLabel.setIcon(dannyImageArray[randomDanny]);
+            		 //Add that image to the array so it doesn't repeat.
+            		 alreadyDevitodArray.add(randomDanny);
+            		 
+            		 
+            	 }else {
+            		 
+            		  //Choose a new image index
+            		  randomDanny = randomDannyNum.nextInt();
+            		  //Call button listener again
+            		  dannyButton.doClick();
+            	 }
              }
          });
          
