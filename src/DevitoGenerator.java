@@ -5,6 +5,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Random;
 import java.util.Timer;
+import java.util.TimerTask;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -54,9 +55,13 @@ public class DevitoGenerator extends JFrame {
     
     //Makes the window 
     public DevitoGenerator() {
+    	
     	super("Danny Window");
     	
-    	 // button variable
+    	//Set rate at which new devitos appear
+    	dannyTimer.scheduleAtFixedRate(newDevito(), 2000, 5000);
+    
+    	// button variable
     	 JButton dannyButton = new JButton("Next Devito"); 
     	 
      	 // create a JLabel, put in it to start a random index in the imageArray
@@ -77,6 +82,7 @@ public class DevitoGenerator extends JFrame {
         	 }
          });
          
+
          
          //button listener - what happens when button is clicked
          dannyButton.addActionListener(new ActionListener() {
@@ -108,10 +114,18 @@ public class DevitoGenerator extends JFrame {
         	 }
          });
          
+         
+         
          super.setSize(800, 800); 
          setVisible(true);    
          
     }
-  
-
+    
+    public TimerTask newDevito() {
+    	 JLabel imageLabel = new JLabel(dannyImageArray[randomDannyNum.nextInt(dannyImageArray.length)]);
+    	 imageLabel.setIcon(dannyImageArray[randomDannyNum.nextInt(dannyImageArray.length)]);
+    	 return null;
+    }
+    
+    
 }
