@@ -44,6 +44,8 @@ public class DevitoGenerator extends JFrame {
     
    public List<Integer> alreadyDevitodArray = Arrays.asList();
     
+   
+   
     // main class 
     public static void main(String[] args) { 
  
@@ -53,19 +55,45 @@ public class DevitoGenerator extends JFrame {
     } 
     
     
+    
+    // create a JLabel, put in it to start a random index in the imageArray
+    JLabel imageLabel = new JLabel(dannyImageArray[randomDannyNum.nextInt(dannyImageArray.length)]); 	
+    
+    
+    public void getNewDevito() {
+    	 int randomDanny = randomDannyNum.nextInt(dannyImageArray.length);
+     	
+    	 //If the arrays aren't the same size not all possible images have been shown, so..
+    	 if (alreadyDevitodArray.size() != dannyImageArray.length) {
+    		 
+        	 //If the random number is not in the array AKA hasn't been shown yet
+        	 if (!Arrays.asList(alreadyDevitodArray).contains(randomDanny)) {
+        		 
+        		 //Display the image
+        		 imageLabel.setIcon(dannyImageArray[randomDanny]);
+        		 //Add that image to the array so it doesn't repeat.
+        		 alreadyDevitodArray.add(randomDanny);
+        		 
+        		 
+        	 }else{
+        	//The image has already been displayed so..	 
+        		  //Choose a new image index
+        		  randomDanny = randomDannyNum.nextInt();
+        	 }
+         }
+    }
+    
+    
     //Makes the window 
     public DevitoGenerator() {
     	
     	super("Danny Window");
     	
     	//Set rate at which new devitos appear
-    	dannyTimer.scheduleAtFixedRate(newDevito(), 2000, 5000);
+    	dannyTimer.schedule(newDevito(), 2000, 5000);
     
     	// button variable
     	 JButton dannyButton = new JButton("Next Devito"); 
-    	 
-     	 // create a JLabel, put in it to start a random index in the imageArray
-         JLabel imageLabel = new JLabel(dannyImageArray[randomDannyNum.nextInt(dannyImageArray.length)]); 
    
          // add label and button to the frame(super)
          add(dannyButton, BorderLayout.SOUTH); 
@@ -84,33 +112,13 @@ public class DevitoGenerator extends JFrame {
          
 
          
-         //button listener - what happens when button is clicked
+ //button listener - what happens when button is clicked
          dannyButton.addActionListener(new ActionListener() {
          
         	 public void actionPerformed(ActionEvent e){
             	
-            	 int randomDanny = randomDannyNum.nextInt(dannyImageArray.length);
+        		 getNewDevito();
             	
-            	 //If the arrays aren't the same size not all possible images have been shown, so..
-            	 if (alreadyDevitodArray.size() != dannyImageArray.length) {
-            		 
-	            	 //If the random number is not in the array AKA hasn't been shown yet
-	            	 if (!Arrays.asList(alreadyDevitodArray).contains(randomDanny)) {
-	            		 
-	            		 //Display the image
-	            		 imageLabel.setIcon(dannyImageArray[randomDanny]);
-	            		 //Add that image to the array so it doesn't repeat.
-	            		 alreadyDevitodArray.add(randomDanny);
-	            		 
-	            		 
-	            	 }else{
-	            	//The image has already been displayed so..	 
-	            		  //Choose a new image index
-	            		  randomDanny = randomDannyNum.nextInt();
-	            		  //Call button listener again
-	            		  dannyButton.doClick();
-	            	 }
-	             }
         	 }
          });
          
@@ -122,8 +130,8 @@ public class DevitoGenerator extends JFrame {
     }
     
     public TimerTask newDevito() {
-    	 JLabel imageLabel = new JLabel(dannyImageArray[randomDannyNum.nextInt(dannyImageArray.length)]);
-    	 imageLabel.setIcon(dannyImageArray[randomDannyNum.nextInt(dannyImageArray.length)]);
+    	 
+    	getNewDevito();
     	 return null;
     }
     
