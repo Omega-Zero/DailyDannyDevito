@@ -80,6 +80,10 @@ public class DevitoGenerator extends JFrame {
         		  //Choose a new image index
         		  randomDanny = randomDannyNum.nextInt();
         	 }
+        //Arrays are the same size now so all possible images have been used so empty the list 
+         }else {
+        	 alreadyDevitodArray.clear();
+        	 getNewDevito();
          }
     }
     
