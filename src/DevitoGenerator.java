@@ -90,7 +90,7 @@ public class DevitoGenerator extends JFrame {
     	super("Danny Window");
     	
     	//Set rate at which new devitos appear
-    	dannyTimer.schedule(newDevito(), 2000, 5000);
+    	dannyTimer.scheduleAtFixedRate(newDevito(), 2000, 5000);
     
     	// button variable
     	 JButton dannyButton = new JButton("Next Devito"); 
