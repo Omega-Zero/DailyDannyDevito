@@ -37,7 +37,18 @@ public class DevitoGenerator extends JFrame {
 			new ImageIcon("classicDannyD11.png"),
 			new ImageIcon("classicDannyD12.png"),
 			new ImageIcon("classicDannyD13.png"),
-			new ImageIcon("classicDannyD14.png")
+			new ImageIcon("classicDannyD14.png"),
+			new ImageIcon("classicDannyD15.png"),
+			new ImageIcon("classicDannyD16.png"),
+			new ImageIcon("classicDannyD17.png"),
+			new ImageIcon("classicDannyD18.png"),
+			new ImageIcon("classicDannyD19.png"),
+			new ImageIcon("classicDannyD20.png"),
+			new ImageIcon("classicDannyD21.png"),
+			new ImageIcon("classicDannyD22.png"),
+			new ImageIcon("classicDannyD23.png")
+			
+			
 	};
 
 	private List<ImageIcon> alreadyDisplayed = new ArrayList<ImageIcon>();
